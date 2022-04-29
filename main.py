@@ -7,6 +7,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select
 from bs4 import BeautifulSoup
 import time
+import random
 
 # gender : male, female
 gender = "male"
@@ -17,6 +18,16 @@ hair = "black"
 # emotion :  Disgusted : 역겨운, Frightened : 겁먹은,
 emotion_dict = {'disgust':'emotiondisgust','angry':'emotionneangry'}
 emotion = emotion_dict['disgust']
+
+# age : child (10-20), adult (20-50), older (50-)
+# If you select an option, that option is chosen by a random number within the range.
+age = "adult"
+if age == "child":
+    random.randrange(1, 7)
+elif age == "adult":
+    random.randrange(1, 7)
+elif age == "older":
+    random.randrange(1, 7)
 
 # get url
 URL = 'https://generated.photos/face-generator/6268f6b0f44734000f062f19'
@@ -40,3 +51,7 @@ elif hair == "brown":
 # emotion click
 driver.find_element_by_id(emotion).click()
 
+
+slider = driver.find_element_by_xpath('//*[@id="ageSlider"]/input')
+for i in range(10):
+  slider.send_keys(Keys.RIGHT)
