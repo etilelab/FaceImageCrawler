@@ -3,7 +3,7 @@ from selenium.webdriver.common.keys import Keys
 from bs4 import BeautifulSoup
 import time
 import random
-import urllib
+import urllib.request
 
 # Gender : male, female
 gender = "male"
@@ -59,7 +59,7 @@ driver.find_element_by_xpath('//*[@id="__layout"]/div/div[1]/aside/div[3]/div[2]
 time.sleep(7)
 
 face_image = driver.find_element_by_xpath('//*[@id="__layout"]/div/div[1]/main/div[2]/div[1]/img').get_attribute('src')
-urllib.request.urlretrieve(face_image, "FACE_{gender}_{hair}_{emotion}_{count}.jpg".format(gender, hair, emotion, count))
+urllib.request.urlretrieve(face_image, "FACE_{gender}_{hair}_{emotion}_{count}.jpg".format(gender=gender, hair=hair, emotion=emotion, count=count))
 count = count + 1
 
 # Generate new image
