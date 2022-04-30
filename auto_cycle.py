@@ -20,7 +20,7 @@ age_number = random.randrange(-4, 25)
 
 # Download image count
 count = 0
-max_count = 4  # count (1) = gender(2) + emotion(2)
+max_count = 300  # count (1) = gender(2) + emotion(2)
 person_count = 0 # same gender
 
 # ===================================================
@@ -47,6 +47,11 @@ for i in range(0, max_count):
 
         # Set age
         slider = driver.find_element_by_xpath('//*[@id="ageSlider"]/input')
+        for i in range(100):
+            slider.send_keys(Keys.LEFT)
+        for i in range(19):
+            slider.send_keys(Keys.RIGHT)
+
         if age_number > 0:
             for i in range(age_number):
                 slider.send_keys(Keys.RIGHT)
