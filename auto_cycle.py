@@ -25,7 +25,7 @@ person_count = 0 # same gender
 
 # ===================================================
 # Get url
-URL = 'https://generated.photos/face-generator/6268f6b0f44734000f062f19'
+URL = 'https://generated.photos/face-generator/new'
 driver = webdriver.Chrome(executable_path='chromedriver')
 driver.get(url=URL)
 
@@ -42,26 +42,6 @@ for i in range(0, max_count):
             driver.find_element_by_id("sexmale").click()
         else:
             driver.find_element_by_id("sexfemale").click()
-
-        # Set hair
-        if hair == "black":
-            driver.find_element_by_id("hair#404040").click()
-        elif hair == "brown":
-            driver.find_element_by_id("hair#6C4F3D").click()
-
-        # Set age
-        slider = driver.find_element_by_xpath('//*[@id="ageSlider"]/input')
-        for i in range(100):
-            slider.send_keys(Keys.LEFT)
-        for i in range(19):
-            slider.send_keys(Keys.RIGHT)
-        print(age_number)
-        if age_number > 0:
-            for i in range(age_number):
-                slider.send_keys(Keys.RIGHT)
-        else:
-            for i in range(age_number):
-                slider.send_keys(Keys.LEFT)
 
         # Set emotion-> update face image
         for emotion in emotions:
