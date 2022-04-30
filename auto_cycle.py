@@ -16,7 +16,7 @@ emotions = ['emotiondisgust','emotionangry']
 
 # Age
 # website standard age is 19.  Result age is 19 +- age_number
-age_number = random.randrange(-4, 25)
+age_number = random.randrange(-4, 40)
 
 # Download image count
 count = 0
@@ -33,6 +33,10 @@ time.sleep(3)  # wait 3 seconds
 
 for i in range(0, max_count):
     for gender in genders:
+        # Age
+        # website standard age is 19.  Result age is 19 +- age_number
+        age_number = random.randrange(-4, 40)
+
         # Set gender
         if gender == "male":
             driver.find_element_by_id("sexmale").click()
@@ -51,7 +55,7 @@ for i in range(0, max_count):
             slider.send_keys(Keys.LEFT)
         for i in range(19):
             slider.send_keys(Keys.RIGHT)
-
+        print(age_number)
         if age_number > 0:
             for i in range(age_number):
                 slider.send_keys(Keys.RIGHT)
