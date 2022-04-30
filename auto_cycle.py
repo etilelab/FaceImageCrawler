@@ -33,15 +33,22 @@ time.sleep(3)  # wait 3 seconds
 
 for i in range(0, max_count):
     for gender in genders:
-        # Age
-        # website standard age is 19.  Result age is 19 +- age_number
-        age_number = random.randrange(-4, 40)
-
+        hair_count = random.randrange(1,3)
         # Set gender
         if gender == "male":
             driver.find_element_by_id("sexmale").click()
+            slider = driver.find_element_by_xpath('//*[@id="hairLengthSlider"]/input')
+            for i in range(hair_count):
+                slider.send_keys(Keys.LEFT)
         else:
             driver.find_element_by_id("sexfemale").click()
+            # Set Hair
+            slider = driver.find_element_by_xpath('//*[@id="hairLengthSlider"]/input')
+            for i in range(3):
+                slider.send_keys(Keys.RIGHT)
+
+        skins = ['skin#E8BA93','skin#E2956E']
+        driver.find_element_by_id(skins[random.randrange(0,2)]).click()
 
         # Set emotion-> update face image
         for emotion in emotions:
