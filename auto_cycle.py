@@ -47,7 +47,7 @@ for i in range(0, max_count):
             for i in range(3):
                 slider.send_keys(Keys.RIGHT)
 
-        skins = ['skin#E8BA93','skin#E2956E']
+        skins = ['skin#F3E6C8','skin#E2956E']
         driver.find_element_by_id(skins[random.randrange(0,2)]).click()
 
         # Set emotion-> update face image
